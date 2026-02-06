@@ -1,10 +1,109 @@
-<html>
-    <head>
-        <title>
-            My First Project for git hub
-        </title>
-    </head>
-    <body>
-        <p>Hello Friends</p>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Secure Sheet Access</title>
+
+<style>
+    body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #141e30, #243b55);
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+    }
+
+    .box {
+        background: rgba(255,255,255,0.12);
+        backdrop-filter: blur(10px);
+        padding: 30px;
+        width: 360px;
+        border-radius: 12px;
+        text-align: center;
+        box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    }
+
+    h2 {
+        margin-bottom: 15px;
+    }
+
+    input {
+        width: 90%;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: none;
+        outline: none;
+        text-align: center;
+    }
+
+    button {
+        margin-top: 12px;
+        padding: 10px 25px;
+        font-size: 16px;
+        border: none;
+        border-radius: 20px;
+        cursor: pointer;
+        background: linear-gradient(45deg, #00c6ff, #0072ff);
+        color: #fff;
+    }
+
+    button:hover {
+        opacity: 0.9;
+    }
+
+    .error {
+        margin-top: 10px;
+        color: #ff5252;
+        font-weight: bold;
+    }
+
+    .credit {
+        position: absolute;
+        bottom: 10px;
+        right: 15px;
+        font-size: 12px;
+        opacity: 0.8;
+    }
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h2>🔐 Secure Sheet Access</h2>
+    <p>Enter Password to Open Google Sheet</p>
+
+    <input type="password" id="password" placeholder="Enter Password">
+    <br>
+    <button onclick="checkPassword()">Access</button>
+
+    <div class="error" id="error"></div>
+</div>
+
+<div class="credit">© Md. Shahin Alam</div>
+
+<script>
+    // 🔑 এখানে password সেট করো
+    const correctPassword = "ST0104";
+
+    // 📄 এখানে তোমার Google Sheet link বসাও
+    const sheetURL = "https://docs.google.com/spreadsheets/d/1GIfVoJgpXnVFjAgXPCikuCXeLNSDHjerFtDjfX6gGHY/edit?usp=sharing";
+
+    function checkPassword() {
+        const pass = document.getElementById("password").value;
+        const error = document.getElementById("error");
+
+        if (pass === correctPassword) {
+            window.location.href = sheetURL;
+        } else {
+            error.innerText = "❌ Wrong Password";
+        }
+    }
+</script>
+
+</body>
 </html>
